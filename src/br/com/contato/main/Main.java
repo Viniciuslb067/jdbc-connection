@@ -1,24 +1,35 @@
 package br.com.contato.main;
 
-import br.com.contato.dao.ContatoDAO;
-import br.com.contato.model.Contato;
+import br.com.contato.dao.VendedorDAO;
+import br.com.contato.model.Vendedor;
 
 import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
-        ContatoDAO contatoDAO = new ContatoDAO();
+        VendedorDAO vendedorDAO = new VendedorDAO();
 
-        Contato contato = new Contato();
+        Vendedor vendedor = new Vendedor();
 
-        contato.setName("Pedro");
-        contato.setAge(50);
-        contato.setCreatedAt(new Date());
+        vendedor.setName("Vinicius");
+        vendedor.setEmail("vinicius@gmail.com");
+        vendedor.setBaseSalary(1100.00);
 
-        contatoDAO.save(contato);
+        // vendedorDAO.save(vendedor);
 
-        for (Contato c: contatoDAO.getContato()) {
-            System.out.println("Nome: " + c.getName() + "\n" + "Idade: " + c.getAge() + "\n" );
+        Vendedor vendedorUpdate = new Vendedor();
+        vendedorUpdate.setName("Carlos");
+        vendedorUpdate.setEmail("carlos@gmail.com");
+        vendedorUpdate.setBaseSalary(1500.00);
+        vendedorUpdate.setId(8);
+
+        vendedorDAO.update(vendedorUpdate);
+
+        // vendedorDAO.deleteById(5);
+
+        for (Vendedor c: vendedorDAO.getContato()) {
+            System.out.println("Nome: " + c.getName() + "\n" + "Email: "
+                    + c.getEmail() + "\n" + "Aniversário: " + "\n" + "Salário: " + c.getBaseSalary());
         }
 
     }
