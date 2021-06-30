@@ -11,11 +11,15 @@ public class Main {
 
         Contato contato = new Contato();
 
-        contato.setName("");
-        contato.setAge(19);
+        contato.setName("Pedro");
+        contato.setAge(50);
         contato.setCreatedAt(new Date());
 
         contatoDAO.save(contato);
+
+        for (Contato c: contatoDAO.getContato()) {
+            System.out.println("Nome: " + c.getName() + "\n" + "Idade: " + c.getAge() + "\n" );
+        }
 
     }
 }
